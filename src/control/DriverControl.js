@@ -8,5 +8,11 @@ module.exports = {
 		const drivers = await Driver.find()
 
 		return res.json(drivers)
+	},
+
+	async store(req, res) {
+		const driver = await Driver.create(req.body)
+
+		return res.json(driver)
 	}
 }

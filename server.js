@@ -6,6 +6,7 @@ const requireDir = require('require-dir')
 
 // Creating app with express
 const app = express()
+app.use(express.json())
 
 // Starting database
 mongoose.connect('mongodb://localhost:27017/driverapi', {
