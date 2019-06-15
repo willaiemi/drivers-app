@@ -13,11 +13,11 @@ const DriverSchema = new mongoose.Schema({
 		required: true
 	},
 	locationLatitude: {
-		type: number,
+		type: Number,
 		required: true
 	},
 	locationLongitude: {
-		type: number,
+		type: Number,
 		required: true
 	}
 })
