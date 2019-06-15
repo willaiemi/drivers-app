@@ -8,8 +8,11 @@ const Driver = mongoose.model('Driver')
 
 module.exports = {
 	async index(req, res) {
-		// get all drivers from the database
-		const drivers = await Driver.find()
+		// get the page number using get params
+		const { page = 1 } = req.query
+
+		// get all drivers from the database, 10 per page
+		const drivers = await Driver.paginate({}, { page, limit:10 })
 
 		//return all drivers in json format
 		return res.json(drivers)
