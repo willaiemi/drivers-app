@@ -14,5 +14,10 @@ module.exports = {
 		const driver = await Driver.create(req.body)
 
 		return res.json(driver)
+	},
+	async show(req, res) {
+		const driver = await Driver.findById(req.params.id)
+
+		return res.json(driver)
 	}
 }
