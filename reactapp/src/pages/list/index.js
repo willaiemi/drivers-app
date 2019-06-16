@@ -49,7 +49,13 @@ export default class List extends Component {
 				{drivers.map(driver => {
 					return (
 						<article key={driver._id}>
-							<strong>{driver.name}</strong>
+							<div>
+								<strong>{driver.name}</strong>
+								<div class="driver-actions">
+									<button id="action_edit"></button>
+									<button id="action_delete"></button>
+								</div>
+							</div>
 							<p>{driver.carPlate}</p>
 
 							<a href="">View on map</a>
