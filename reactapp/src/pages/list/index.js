@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import api from '../../services/api'
 import './styles.css'
+import { Link } from 'react-router-dom'
 
 export default class List extends Component {
 	state = {
@@ -51,14 +52,14 @@ export default class List extends Component {
 						<article key={driver._id}>
 							<div>
 								<strong>{driver.name}</strong>
-								<div class="driver-actions">
-									<button id="action_edit"></button>
-									<button id="action_delete"></button>
+								<div className="driver-actions">
+									<Link to={`/drivers/${driver._id}`} id="action_edit"></Link>
+									<a href="#" id="action_delete"></a>
 								</div>
 							</div>
 							<p>{driver.carPlate}</p>
 
-							<a href="">View on map</a>
+							<a id="a_map" href="">View on map</a>
 						</article>
 					)
 				})}

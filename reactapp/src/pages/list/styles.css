@@ -25,7 +25,7 @@
 	width: 70px;
 }
 
-.driver-actions button {
+.driver-actions a {
 	height: 30px;
 	width: 30px;
 	background: #fff;
@@ -38,7 +38,7 @@
 	background-size: 22px;
 }
 
-.driver-actions button:hover {
+.driver-actions a:hover {
 	box-shadow: 1px 1px 5px #000;
 }
 
@@ -57,7 +57,7 @@
 	line-height: 24px;
 }
 
-.driver-list article a {
+#a_map {
 	height: 42px;
 	border-radius: 5px;
 	border: 2px solid #000;
@@ -73,7 +73,7 @@
 	transition: all 0.2s;
 }
 
-.driver-list article a:hover {
+#a_map:hover {
 	background: #000;
 	color: #fff;
 }
