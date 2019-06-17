@@ -46,6 +46,6 @@ module.exports = {
 		await Driver.findByIdAndRemove(req.params.id)
 
 		// return status 200
-		return res.send()
+		return res.send({})
 	}
 }
