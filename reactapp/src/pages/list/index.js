@@ -54,6 +54,7 @@ export default class List extends Component {
 
 		return (
 			<div className="driver-list">
+				<Link className="new-driver" to={"/drivers/new"}>New</Link>
 				{drivers.map(driver => {
 					return (
 						<article key={driver._id}>

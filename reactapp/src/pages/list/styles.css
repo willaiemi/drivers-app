@@ -12,6 +12,25 @@
 	margin-bottom: 20px;
 }
 
+.new-driver {
+	border: 1px solid hsl(217, 71%, 53%);
+	padding: 20px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: hsl(217, 71%, 53%);
+	font-size: 20px;
+	transition: all 0.2s;
+	background: #fff;
+}
+
+.new-driver:hover {
+	background: hsl(217, 71%, 53%);
+	color: #fff;
+}
+
 .driver-list article div {
 	display: flex;
 	justify-content: space-between;
