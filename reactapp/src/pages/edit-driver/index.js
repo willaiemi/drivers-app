@@ -34,6 +34,12 @@ export default class EditDriver extends Component {
 		this.props.history.push('/drivers')
 	}
 
+	goBack = (event) => {
+		event.preventDefault()
+
+		this.props.history.push('/drivers')
+	}
+
 	render() {
 		const { driver } = this.state
 
@@ -50,7 +56,7 @@ export default class EditDriver extends Component {
 					</div>
 					<div className="edit-driver-actions">
 						<button onClick={this.updateDriver} id="action_update">Update</button>
-						<button id="action_back">Back</button>
+						<button onClick={this.goBack} id="action_back">Back</button>
 					</div>
 				</form>
 			</div>
