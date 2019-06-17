@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import api from '../../services/api'
 import './styles.css'
 import { Link } from 'react-router-dom'
+import Popup from 'reactjs-popup'
 
 export default class List extends Component {
 	state = {
@@ -42,6 +43,12 @@ export default class List extends Component {
 		this.loadDrivers(pageNumber)
 	}
 
+	deleteDriver = async (e, id) => {
+		await api.delete(`/drivers/${id}`)
+
+		this.loadDrivers(this.state.page)
+	}
+
 	render() {
 		const { drivers, driversInfo, page } = this.state
 
@@ -54,7 +61,18 @@ export default class List extends Component {
 								<strong>{driver.name}</strong>
 								<div className="driver-actions">
 									<Link to={`/drivers/${driver._id}`} id="action_edit"></Link>
-									<a href="#" id="action_delete"></a>
+									<Popup trigger={<button id="action_delete"></button>}
+										position="top right"
+									>
+										<div className="delete-popup">
+											<div>
+												<p>Are you sure you want to delete {driver.name}?</p>
+											</div>
+											<div>
+												<button onClick={(e) => { this.deleteDriver(e, driver._id) }}>Delete</button>
+											</div>
+										</div>
+									</Popup>
 								</div>
 							</div>
 							<p>{driver.carPlate}</p>
