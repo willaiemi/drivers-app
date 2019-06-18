@@ -8,7 +8,12 @@ export default class MapPage extends Component {
 		driver: {
 			name: "",
 			carPlate: ""
-		}
+		},
+		buttonsReady: false
+	}
+
+	renderButtons = () => {
+		//TODO
 	}
 
 	async componentDidMount () {
@@ -22,8 +27,8 @@ export default class MapPage extends Component {
 
 		const response = await api.get(`/drivers/${id}`)
 		const driver = response.data
-		console.log(driver)
-		await this.setState({ driver })
+		this.renderButtons();
+		await this.setState({ ...this.state, driver })
 	}
 
 	render() {
@@ -34,9 +39,9 @@ export default class MapPage extends Component {
 					<Map driver_id={this.props.match.params.id} />
 				</article>
 				<div className="options">
-					<button>Previous</button>
+					<button disabled={!this.state.buttonsReady}>Previous</button>
 					<h2>{`${driver.name} - ${driver.carPlate}`}</h2>
-					<button>Next</button>
+					<button disabled={!this.state.buttonsReady}>Next</button>
 				</div>
 			</div>
 		)
