@@ -78,7 +78,7 @@ export default class List extends Component {
 							</div>
 							<p>{driver.carPlate}</p>
 
-							<a id="a_map" href="">View on map</a>
+							<Link id="a_map" to={`/map/${driver._id}`}>View on map</Link>
 						</article>
 					)
 				})}
