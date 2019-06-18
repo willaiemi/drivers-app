@@ -31,6 +31,12 @@ export default class MapPage extends Component {
 		await this.setState({ ...this.state, driver })
 	}
 
+	componentDidUpdate() {
+		if (!this.state.driver.name) {
+			this.componentDidMount()
+		}
+	}
+
 	render() {
 		const {driver} = this.state
 		return (

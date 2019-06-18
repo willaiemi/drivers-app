@@ -24,6 +24,12 @@ export default class Map extends Component {
 		await this.setState({ latLng, isLoading: false })
 	}
 
+	componentDidUpdate() {
+		if (this.state.isLoading) {
+			this.componentDidMount()
+		}
+	}
+
 	renderMap() {
 		if (this.state.latLng.lat === undefined) {
 			return (
