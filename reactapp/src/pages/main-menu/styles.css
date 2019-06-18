@@ -1,0 +1,38 @@
+.main-menu {
+	max-width: 700px;
+	margin: 10px auto 0;
+	padding: 0 20px;
+}
+
+.main-menu div {
+	background: #fff;
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.main-menu div p {
+	margin: 10px 0;
+}
+
+.main-menu div a {
+	height: 42px;
+	border-radius: 5px;
+	border: 2px solid #000;
+	background: none;
+	margin-top: 10px;
+	color: #000;
+	font-weight: bold;
+	font-size: 15px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.main-menu div a:hover {
+	background: #000;
+	color: #fff;
+}
