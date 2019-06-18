@@ -17,21 +17,27 @@ export default class CreateDriver extends Component {
 		const value = target.value;
 		const name = target.name;
 
+		// if there's a change in some input, save the change in the driver info
 		await this.setState({ driver: { ...this.state.driver, [name]: value } })
 	}
 
 	createDriver = async (event) => {
+		// prevent bad things from happening
 		event.preventDefault()
 
 		const { driver } = this.state
+		// create the new driver in the database
 		await api.post('/drivers', driver)
 		
+		// redirect to the drivers list
 		this.props.history.push(`/drivers`)
 	}
 
 	goBack = (event) => {
+		// prevent bad things from happening
 		event.preventDefault()
 
+		// redirect to the drivers list
 		this.props.history.push('/drivers')
 	}
 

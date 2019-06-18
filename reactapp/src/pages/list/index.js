@@ -1,3 +1,4 @@
+// LIST TO DISPLAY ALL DRIVERS
 import React, { Component } from 'react'
 import api from '../../services/api'
 import './styles.css'
@@ -12,20 +13,26 @@ export default class List extends Component {
 	}
 
 	componentDidMount() {
+		// when component mount, load the drivers
 		this.loadDrivers();
 	}
 
 	loadDrivers = async (page = 1) => {
+		// get the drivers from the Node API
 		const response = await api.get(`/drivers?page=${page}`)
 
 		const { docs, ...driversInfo} = response.data
 
+		// save drivers in state
 		this.setState({ drivers: docs, driversInfo, page})
 	}
 
+	// go to previous page
 	previousPage = () => {
+		// get page from state
 		const { page } = this.state
 
+		// if the actual page is the first one, there's no previous page
 		if (page === 1) return
 
 		const pageNumber = page - 1
@@ -33,9 +40,12 @@ export default class List extends Component {
 		this.loadDrivers(pageNumber)
 	}
 
+	// go to next page
 	nextPage = () => {
+		// get page from state
 		const { page, driversInfo } = this.state
 
+		// if the actual page is the last one(same number of total pages), there's no next page
 		if (page === driversInfo.pages) return
 
 		const pageNumber = page + 1
@@ -43,6 +53,7 @@ export default class List extends Component {
 		this.loadDrivers(pageNumber)
 	}
 
+	// delete a driver
 	deleteDriver = async (e, id) => {
 		await api.delete(`/drivers/${id}`)
 

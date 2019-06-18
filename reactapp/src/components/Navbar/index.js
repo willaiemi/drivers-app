@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+// imports
+import React from 'react'
 import './styles.css'
 
+// render navbar
 const Navbar = () => {
 	return (
 		<div className="navbar">
